@@ -84,13 +84,14 @@ export default StyleSheet.create({
         marginTop: 10
     },
     contentItems: {
-        flex: 1,
+        flex: 1.15,
         fontSize: 15,
         letterSpacing: 0.24,
-        color: 'rgb(255,255,255)'
+        color: 'rgb(255,255,255)',
+        marginLeft:30,
     },
     contentItems1: {
-        flex: 3,
+        flex: 2.7,
         fontSize: 15,
         letterSpacing: 0.24,
         color: 'rgb(255,255,255)',
@@ -100,7 +101,7 @@ export default StyleSheet.create({
         width: 10,
         height: 22,
         marginLeft: 10,
-        flex: 1 / 10,
+        flex: 1 / 7,
         marginRight: 10
     },
     content1: {
@@ -138,13 +139,15 @@ export default StyleSheet.create({
         fontSize: 15,
         letterSpacing: 0.24,
         color: 'rgb(79,79,79)',
-        flex: 3
+        flex: 3,
+        marginLeft: 10
     },
     contentItems3: {
         fontSize: 15,
         letterSpacing: 0.24,
         color: 'rgb(79,79,79)',
-        flex: 1
+        flex: 1,
+        marginLeft: 25
     },
     bottomView: {
         justifyContent: 'center',

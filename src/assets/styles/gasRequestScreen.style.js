@@ -107,7 +107,7 @@ export default StyleSheet.create({
     },
     btnBottom: {
         alignItems: 'center',
-        paddingTop: 30,
+        paddingTop: 70,
         paddingBottom: 40
     }
 });
