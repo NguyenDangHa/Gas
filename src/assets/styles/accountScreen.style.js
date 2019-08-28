@@ -2,17 +2,31 @@ import {
     StyleSheet
 } from 'react-native';
 export default StyleSheet.create({
-    container: {
+    backgroundContainer: {
         flex: 1,
-        backgroundColor: 'rgb(255,130,0)',
-        justifyContent: 'center'
+        backgroundColor: 'grey'
     },
-    slideshow: {
-        width: 414,
-        height: 250,
-        alignItems: 'center',
-        marginBottom: 15,
-        marginTop: 15,
+    container: {
+        width: 384,
+        height: 540,
+        backgroundColor: 'rgb(255,255,255)',
+        borderRadius: 15,
+        borderColor: 'rgba(0,0,0,0.5)',
+        margin: 10,
+    },
+    topView: {
+        flexDirection: 'row',
+        width: '100%',
+        marginTop: 10,
+        justifyContent: 'space-between'
+    },
+    topText: {
+        color: 'rgb(255,255,255)',
+        fontSize: 20,
+        letterSpacing: 0.75,
+        textAlign: 'center',
+        marginTop: 5,
+        fontWeight: 'bold'
     },
     bottomView: {
         flex: 1,
@@ -27,19 +41,9 @@ export default StyleSheet.create({
         bottom: 0,
         alignItems: 'center'
     },
-    topView: {
-        flexDirection: 'row',
-        width: '100%',
-        marginTop: 10,
-        justifyContent: 'space-between'
-    },
-    topText: {
-        fontWeight: 'bold',
-        letterSpacing: 0.75,
-        color: 'rgb(255,255,255)',
-        fontSize: 20,
-        marginLeft: 15,
-        fontWeight: 'bold'
+    childrenBottomView: {
+        alignItems: 'center',
+        flex: 1
     },
     notification: {
         marginRight: 15,
@@ -54,15 +58,13 @@ export default StyleSheet.create({
         letterSpacing: 0.73,
     },
     textGach: {
-        color: 'rgb(243,243,243)',
-        justifyContent: 'center',
-        alignContent: 'center',
-        marginBottom: 15,
-        textAlign: 'center'
+        color: 'rgb(151,151,151)',
+        marginLeft: 10,
+        marginRight: 15
     },
     btnDatMua: {
-        width: 118,
-        height: 139,
+        width: 110,
+        height: 130,
         borderRadius: 10,
         backgroundColor: 'rgb(255,255,255)',
         justifyContent: 'center',
@@ -77,8 +79,8 @@ export default StyleSheet.create({
     btnNhanHang: {
         marginLeft: 15,
         marginRight: 15,
-        width: 118,
-        height: 139,
+        width: 110,
+        height: 130,
         borderRadius: 10,
         backgroundColor: 'rgb(255,255,255)',
         justifyContent: 'center',
@@ -91,8 +93,8 @@ export default StyleSheet.create({
         color: 'rgb(109,114,120)'
     },
     btnLichSuMH: {
-        width: 118,
-        height: 139,
+        width: 110,
+        height: 130,
         borderRadius: 10,
         backgroundColor: 'rgb(255,255,255)',
         justifyContent: 'center',
@@ -112,5 +114,56 @@ export default StyleSheet.create({
     childrenBottomView: {
         alignItems: 'center',
         flex: 1
+    },
+    imageProfile: {
+        width: 80,
+        height: 80,
+        borderRadius: 50
+    },
+    textName: {
+        fontSize: 20,
+        letterSpacing: 0.75,
+        color: 'rgb(255,130,0)'
+    },
+    textPhone: {
+        fontSize: 15,
+        letterSpacing: 0.56,
+        color: 'rgb(74,74,74)'
+    },
+    textInter: {
+        fontSize: 15,
+        letterSpacing: 0.56,
+        color: 'rgb(186,12,47)'
+    },
+    childrenItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: 364
+    },
+    iconImage: {
+        width: 30,
+        height: 33,
+        borderRadius: 10,
+        marginTop: 5
+    },
+    textItem: {
+        marginTop: 5,
+        marginLeft: 20,
+        fontSize: 17,
+        letterSpacing: 0.85,
+        color: 'rgb(74,74,74)',
+        width: 185,
+        height: 25
+    },
+    imageItem: {
+        marginTop: 5,
+        width: 12,
+        height: 24,
+        marginLeft: 110
+    },
+    imageBack: {
+        width: 42,
+        height: 42
     }
 });
+

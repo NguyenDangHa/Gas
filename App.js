@@ -31,12 +31,7 @@ import FinishedScreen from './src/components/screens/FinishedScreen';
 import GasRequest from './src/components/screens/GasRequestScreen';
 import OrderSuccessScreen from './src/components/screens/OrderSuccessScreen';
 import SuccessfulDeliveryScreen from './src/components/screens/SuccessfulDeliveryScreen';
-
-
 import { Router, Scene } from 'react-native-router-flux';
-
-
-
 
 const App = () => {
   return (
@@ -45,89 +40,73 @@ const App = () => {
         <Scene key="login"
           component={LoginScreen}
           title="Login"
-          
+          initial
           hideNavBar />
         <Scene
           key="register"
           component={RegisterScreen}
           title="Register"
           hideNavBar />
-
         <Scene
           key="registerTow"
           component={RegisterScreen2}
           title="Register"
           hideNavBar />
-
         <Scene
           key="registerThree"
           component={RegisterScreen3}
           title="Register"
           hideNavBar />
-
         <Scene
           key="home"
           component={HomeScreen}
           title="Home"
-          initial
           hideNavBar />
-
         <Scene
           key="purchaseinfo"
           component={PurchaseInfoScreen}
           title="PurchaseInfoScreen"
           hideNavBar />
-
         <Scene
           key="purchaseinfo2"
           component={PurchaseInfoScreen2}
           title="PurchaseInfoScreen2"
           hideNavBar />
-
         <Scene
           key="purchaseinfo3"
           component={PurchaseInfoScreen3}
           title="PurchaseInfoScreen3"
           hideNavBar />
-
         <Scene
           key="verify"
           component={VerifyScreen}
           title="Verify"
           hideNavBar />
-
         <Scene
           key="onlinepayment"
           component={OnlinePaymentScreen}
           title="OnlinePayment"
-          hideNavBar
-        />
-
+          hideNavBar />
         <Scene
           key="receive"
           component={ReceiveScreen}
           title="Receive"
-          hideNavBar
-        />
+          hideNavBar />
         <Scene
           key="history"
           component={HistoryPurchase}
           title="HistoryPurchase"
-          hideNavBar
-        />
-
+          hideNavBar />
         <Scene
           key="notifications"
           component={Notification}
           title="Notification"
-          hideNavBar
-        />
+          hideNavBar />
         <Scene
           key="check"
           component={CheckScreen}
           title="Check"
-          hideNavBar
-        />
+          hideNavBar />
         <Scene
           key="checkbarcode"
           component={BarCodeCheckScreen}
@@ -143,64 +122,64 @@ const App = () => {
         <Scene
           key="infoAccount"
           component={InfoAccountScreen}
-          title="Info Account"          
+          title="Info Account"
           hideNavBar
         />
         <Scene
           key="infoStore"
           component={InfoStoreScreen}
-          title="InfoStore"  
+          title="InfoStore"
           hideNavBar
         />
-         <Scene
+        <Scene
           key="editpass"
           component={EditPassWord}
-          title="Edit PassWord"       
+          title="Edit PassWord"
           hideNavBar
         />
         <Scene
           key="termsOfUse"
           component={TermOfUseScreen}
-          title="Terms Of Use"  
+          title="Terms Of Use"
           hideNavBar
         />
         <Scene
           key="contact"
           component={ContactScreen}
-          title="Contact"  
+          title="Contact"
           hideNavBar
         />
-         <Scene
+        <Scene
           key="message"
           component={MessageScreen}
-          title="Message"  
+          title="Message"
           hideNavBar
         />
-         <Scene
+        <Scene
           key="finish"
           component={FinishedScreen}
-          title="Finished"  
+          title="Finished"
           hideNavBar
         />
-          <Scene
+        <Scene
           key="request"
           component={GasRequest}
-          title="Gas Request"  
+          title="Gas Request"
           hideNavBar
         />
         <Scene
           key="order"
           component={OrderSuccessScreen}
-          title="Order Success"  
+          title="Order Success"
           hideNavBar
         />
-         <Scene
+        <Scene
           key="delivery"
           component={SuccessfulDeliveryScreen}
-          title="Successful Delivery"  
+          title="Successful Delivery"
           hideNavBar
         />
-        
+
 
       </Scene>
     </Router>

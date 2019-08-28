@@ -1,13 +1,20 @@
 import React from 'react';
-
-import { Text, View, TouchableOpacity, StyleSheet, Image, Modal, ScrollView, FlatList } from 'react-native';
+import {
+    Text,
+    View,
+    TouchableOpacity,
+    Image,
+    Modal,
+    ScrollView,
+    FlatList
+} from 'react-native';
 import IconNotifications from '../../images/notificationIcon.png';
 import IconBack from '../../images/backbutton.png';
 import { Actions } from 'react-native-router-flux';
 import IconCalendar from '../../images/calendarIcon.png';
 import IconPicker from '../../images/pickerIcon.png';
 import IconClose from '../../images/closeIcon.png';
-
+import styles from '../../assets/styles/purchase.style';
 
 class PurchaseInfoScreen extends React.Component {
     constructor(props) {
@@ -18,86 +25,84 @@ class PurchaseInfoScreen extends React.Component {
             isVisibleTow: false,
         };
     }
-
     _onPress = () => {
         this.props.onPressItem(this.props.id);
     };
-
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 24 }}>
-                    <TouchableOpacity onPress={() => Actions.home()} ><Image source={IconBack} style={{ width: 45, height: 45, }}></Image></TouchableOpacity>
-                    <Text style={{ color: 'rgb(255,255,255)', fontSize: 20, letterSpacing: 0.75, textAlign: 'center', fontWeight: 'bold' }}>Đặt hàng mua sỉ</Text>
+            <View style={styles.backgroundContainer}>
+                <View style={styles.topView}>
+                    <TouchableOpacity onPress={() => Actions.home()} >
+                        <Image source={IconBack} style={styles.imageBack} />
+                    </TouchableOpacity>
+                    <Text style={styles.topText}>Đặt hàng mua sỉ</Text>
                     <TouchableOpacity onPress={() => Actions.notifications()} >
-                        <Image style={{ width: 30, height: 30, marginRight: 10 }} source={IconNotifications} />
+                        <Image style={styles.notification} source={IconNotifications} />
                     </TouchableOpacity>
                 </View>
 
                 <View style={{ backgroundColor: 'rgb(255,255,255)' }}>
-                    <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: 17, lineHeight: 22, letterSpacing: 0.5, color: 'rgb(186,12,47)', marginTop: 30 }}>Thông tin đặt hàng</Text>
+                    <View style={{ marginLeft: 10 }}>
+                        <Text style={styles.textContainer}>Thông tin đặt hàng</Text>
                         <View style={{ flexDirection: 'row', marginVertical: 10 }}>
-                            <Text style={{ marginTop: 2 }}>Đơn vị :</Text>
-                            <Text style={{ marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, color: 'rgb(74,74,74)' }}>Nhà hàng 4U</Text>
+                            <Text style={styles.textContent2}>Đơn vị :</Text>
+                            <Text style={styles.textContent1}>            Nhà hàng 4U</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ marginTop: 2 }}>Điện thoại :</Text>
-                            <Text style={{ marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, color: 'rgb(0,0,0)' }}>0905888999</Text>
+                            <Text style={styles.textContent2}>Điện thoại :</Text>
+                            <Text style={styles.textContent3}>0905888999</Text>
                         </View>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ marginTop: 5 }}>Địa chỉ :</Text>
-                            <Text style={{ marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, color: 'rgb(0,0,0)' }}>123 Võ Nguyên Giáp, Q. Sơn Trà, Tp.Đà Nẵng. </Text>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={styles.textContent2}>Địa chỉ :</Text>
+                            <Text style={styles.textContent3}>     123 Võ Nguyên Giáp, Q. Sơn Trà,{'\n'} Tp.Đà Nẵng. </Text>
                         </View>
 
-                        <Text numberOfLines={1} style={{ color: 'rgb(151,151,151)', justifyContent: 'center', alignContent: 'center', marginBottom: 30, marginTop: 10, textAlign: 'center' }}>
+                        <Text numberOfLines={1} style={styles.textGach}>
                             ______________________________________________________________
                     </Text>
                     </View>
 
-                    <View style={{ marginLeft: 20, }}>
-                        <Text style={{ marginBottom: 30, fontSize: 17, lineHeight: 22, letterSpacing: 0.5, color: 'rgb(186,12,47)' }}>Địa chỉ nhận hàng</Text>
-                        <View style={{ flexDirection: 'row', marginHorizontal: 10 }}>
-                            <Text style={{ marginTop: 10 }}>Cơ sở :</Text>
+                    <View >
+                        <Text style={styles.textContainer}>Địa chỉ nhận hàng</Text>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={styles.textContent2}>Cơ sở :</Text>
                             <TouchableOpacity onPress={async () => { await this.setState({ isVisible: true }); }}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Text style={{ paddingTop: 10, marginBottom: 11, marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, backgroundColor: 'rgb(235,235,235)', width: 300, height: 44, borderRadius: 22, textAlign: 'center' }}>Cơ sở 1 - Võ Nguyên Giáp</Text>
+                                <View style={{ flexDirection: 'row', width: '100%' }}>
+                                    <Text style={styles.textInput}>Cơ sở 1 - Võ Nguyên Giáp</Text>
                                     <Image
                                         source={IconPicker}
-                                        style={{ width: 28, height: 24, top: 10, right: 30, }} >
+                                        style={styles.iconPicker} >
                                     </Image>
                                 </View>
                             </TouchableOpacity>
                         </View>
 
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ marginTop: 2 }}>Điện thoại :</Text>
-                            <Text style={{ marginBottom: 11, marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, color: 'rgb(0,0,0)' }}>0905123321</Text>
+                            <Text style={styles.textContent2}>Điện thoại :</Text>
+                            <Text style={styles.textContent3}>0905123321</Text>
                         </View>
 
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ marginTop: 5 }}>Địa chỉ :</Text>
-                            <Text style={{ marginBottom: 11, marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, color: 'rgb(0,0,0)' }}>{this.state.name} </Text>
+                            <Text style={styles.textContent2}>Địa chỉ :</Text>
+                            <Text style={styles.textContent3}>     123 Võ Nguyên Giáp, Q. Sơn Trà,{'\n'} Tp.Đà Nẵng.</Text>
                         </View>
 
-                        <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ marginTop: 10 }}>Ngày giao :</Text>
+                        <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                            <Text style={styles.textContent2}>Ngày giao :</Text>
                             <TouchableOpacity onPress={async () => { await this.setState({ isVisibleTow: true }); }}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Text style={{ textAlign: 'center', paddingTop: 10, marginBottom: 11, marginLeft: 25, fontSize: 15, lineHeight: 25, letterSpacing: 0.24, backgroundColor: 'rgb(235,235,235)', width: 290, height: 44, borderRadius: 22 }}>10 tháng 7 2019</Text>
+                                <View style={{ flexDirection: 'row', width: '100%' }}>
+                                    <Text style={styles.textInput}>10 tháng 7 2019</Text>
                                     <Image source={IconCalendar}
-                                        style={{ width: 30, height: 27, position: 'absolute', top: 8, right: 10 }} />
+                                        style={styles.iconCalendar} />
                                 </View>
                             </TouchableOpacity>
                         </View>
                     </View>
-
-                    <View style={{ alignItems: 'center', marginTop: 50, marginBottom: 150 }} >
+                    <View style={styles.btnBottom} >
                         <TouchableOpacity style={styles.btnLogin}>
                             <Text style={styles.textBtnLogin} onPress={() => Actions.purchaseinfo2()}>Tiếp tục</Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
 
                 <Modal
@@ -107,54 +112,50 @@ class PurchaseInfoScreen extends React.Component {
                     onRequestClose={() => { this.setState({ isVisible: true }) }}>
 
                     <View style={styles.modal}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
-                            <Text style={{ marginLeft: 22, marginBottom: 50 }} >Chọn cơ sở</Text>
+                        <View style={styles.modal1}>
+                            <Text style={styles.textContent1} >Chọn cơ sở</Text>
                             <TouchableOpacity onPress={async () => { await this.setState({ isVisible: false }); }}>
                                 <Image style={{ marginRight: 24, width: 15, height: 20 }} source={IconClose}  ></Image>
                             </TouchableOpacity>
                         </View>
 
-                        <View style={{ marginLeft: 20 }}>
+                        <View style={{ margin: 20 }}>
                             <ScrollView>
                                 <View>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(79,79,79)', fontSize: 15 }}>Nhà hàng 4U Cơ sở 1</Text>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(167,167,167)', fontSize: 15 }}>123 Võ Nguyên Giáp, Q. Sơn Trà, Tp. Đà Nẵng</Text>
-                                    <Text numberOfLines={1} style={{ color: 'rgb(151,151,151)', justifyContent: 'center', alignContent: 'center', marginBottom: 15, textAlign: 'center' }}>
+                                    <Text style={styles.textModal1}>Nhà hàng 4U Cơ sở 1</Text>
+                                    <Text style={styles.textModal2}>123 Võ Nguyên Giáp, Q. Sơn Trà, Tp. Đà Nẵng</Text>
+                                    <Text numberOfLines={1} style={styles.textGach}>
                                         ______________________________________________________________</Text>
                                 </View>
                                 <View>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(79,79,79)', fontSize: 15 }}>Nhà hàng 4U Cơ sở 2</Text>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(167,167,167)', fontSize: 15 }}>20 Nguyễn Chí Thanh, Q. Hải Châu, Tp. Đà Nẵng</Text>
-                                    <Text numberOfLines={1} style={{ color: 'rgb(151,151,151)', justifyContent: 'center', alignContent: 'center', marginBottom: 15, textAlign: 'center' }}>
+                                    <Text style={styles.textModal1}>Nhà hàng 4U Cơ sở 2</Text>
+                                    <Text style={styles.textModal2}>20 Nguyễn Chí Thanh, Q. Hải Châu, Tp. Đà Nẵng</Text>
+                                    <Text numberOfLines={1} style={styles.textGach}>
                                         ______________________________________________________________</Text>
                                 </View>
                                 <View>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(79,79,79)', fontSize: 15 }}>Nhà hàng 4U Cơ sở 1</Text>
-                                    <Text style={{ letterSpacing: 0.44, color: 'rgb(167,167,167)', fontSize: 15 }}>59 Nguyễn Tất Thành, Q. Hải Châu. Tp. Đà Nẵng</Text>
+                                    <Text style={styles.textModal1}>Nhà hàng 4U Cơ sở 1</Text>
+                                    <Text style={styles.textModal2}>59 Nguyễn Tất Thành, Q. Hải Châu. Tp. Đà Nẵng</Text>
                                 </View>
                             </ScrollView>
                         </View>
                     </View>
-
                 </Modal>
-
 
                 <Modal
                     animationType={'slide'}
                     transparent={true}
                     visible={this.state.isVisibleTow}
                     onRequestClose={() => { this.setState({ isVisibleTow: true }) }}>
-
                     <View style={styles.modal2}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
                             <Text style={{ marginLeft: 22, marginBottom: 50 }} >Chọn ngày giao</Text>
                             <TouchableOpacity onPress={async () => { await this.setState({ isVisibleTow: false }); }}>
-                                <Image style={{ marginRight: 24, width: 15, height: 20 }} source={IconClose}  ></Image>
+                                <Image style={styles.iconClose} source={IconClose} />
                             </TouchableOpacity>
                         </View>
 
-                        <View style={{ marginLeft: 20, flexDirection: 'row', flex: 1 }}>
-
+                        <View style={styles.listView}>
                             <View style={{ flex: 1, marginLeft: 50 }}>
                                 <FlatList
                                     data={[
@@ -184,79 +185,17 @@ class PurchaseInfoScreen extends React.Component {
                                     keyExtractor={(item, index) => index}
                                 />
                             </View>
-
-
                         </View>
-                        <TouchableOpacity style={styles.btnSelectDate} onPress={async () => { await this.setState({ isVisible: false }) }}>
-                            <View style={{ alignItems: 'center', marginTop: 20 }} >
-                                <Text style={styles.textBtnSelectDate} >Đặt ngày giao</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
 
+                        <View style={{ alignItems: 'center', justifyContent: 'center',marginTop:20 }} >
+                            <TouchableOpacity style={styles.btnSelectDate} onPress={async () => { await this.setState({ isVisible: false }) }}>
+                                <Text style={styles.textBtnSelectDate} >Đặt ngày giao</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </Modal>
             </View>
-
-
         );
     }
-
 }
-
-const styles = StyleSheet.create({
-    btnLogin: {
-        width: 163,
-        height: 46,
-        borderRadius: 25,
-        backgroundColor: 'rgb(186,12,47)',
-        marginBottom: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    textBtnLogin: {
-        color: 'rgb(255,255,255)',
-        textAlign: 'center',
-        fontWeight: 'bold'
-    },
-    modal: {
-        marginTop: 150,
-        height: 450,
-        backgroundColor: 'rgb(197,197,197)',
-        borderRadius: 20,
-        margin: 20,
-    },
-    modal2: {
-        marginTop: 250,
-        height: 418,
-        backgroundColor: 'rgb(197,197,197)',
-        borderRadius: 20,
-
-    },
-    items: {
-        backgroundColor: 'rgb(186,12,47)',
-        fontSize: 15,
-        lineHeight: 22,
-        letterSpacing: 0.44,
-        margin: 10,
-        width: 114,
-        height: 40,
-        borderRadius: 22,
-        textAlign: 'center',
-        paddingTop: 10
-    },
-    btnSelectDate: {
-        width: 163,
-        height: 46,
-        borderRadius: 25,
-        backgroundColor: 'rgb(186,12,47)',
-        marginBottom: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    textBtnSelectDate: {
-        color: 'rgb(255,255,255)',
-        textAlign: 'center',
-        fontWeight: 'bold'
-    },
-})
 export default PurchaseInfoScreen;

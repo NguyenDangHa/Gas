@@ -3,12 +3,9 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
   ScrollView,
-  StyleSheet,
   TouchableOpacity
 } from 'react-native';
-
 import { Actions } from 'react-native-router-flux';
 import IconNotifications from '../../images/notificationIcon.png';
 import datHang from '../../images/menuIcon02.png';
@@ -22,8 +19,6 @@ import IconTaiKhoan from '../../images/icAccount.png';
 import IconTaiKhoanCheck from '../../images/iconAccountCheck.png';
 import Slideshow from 'react-native-image-slider-show';
 import styles from '../../assets/styles/homeScreen.style';
-
-
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -62,80 +57,78 @@ class HomeScreen extends Component {
   }
   render() {
     return (
-
       <View style={styles.container}>
         <ScrollView>
-          <View style={{ flexDirection: 'row', width: '100%', marginTop: 10, justifyContent: 'space-between' }}>
-            <Text style={{ fontWeight: 'bold', letterSpacing: 0.75, color: 'rgb(255,255,255)', fontSize: 20, marginLeft: 15, fontWeight: 'bold' }}>thegioigas</Text>
+          <View style={styles.topView}>
+            <Text style={styles.topText}>thegioigas</Text>
             <Text></Text>
             <TouchableOpacity onPress={() => Actions.notifications()}>
-              <Image style={{ marginRight: 15, width: 30, height: 30 }} source={IconNotifications} ></Image>
+              <Image style={styles.notification} source={IconNotifications} ></Image>
             </TouchableOpacity>
           </View>
 
-          <View style={{}}>
-            <View style={styles.Slideshow}>
+          <View>
+            <View style={styles.slideshow}>
               <Slideshow
                 dataSource={this.state.dataSource}
                 position={this.state.position}
                 onPositionChanged={position => this.setState({ position })} />
             </View>
             <View>
-              <Text style={{ marginLeft: 15, color: 'rgb(255,255,255)', fontSize: 20, lineHeight: 28, letterSpacing: 0.73, }}>MUA HÀNG</Text>
-              <Text numberOfLines={1} style={{ color: 'rgb(243,243,243)', justifyContent: 'center', alignContent: 'center', marginBottom: 15, textAlign: 'center' }}>
+              <Text style={styles.textMuaHang}>MUA HÀNG</Text>
+              <Text numberOfLines={1} style={styles.textGach}>
                 ______________________________________________________________
           </Text>
             </View>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
-              <TouchableOpacity onPress={() => Actions.purchaseinfo()} style={{ width: 110, height: 130, borderRadius: 10, backgroundColor: 'rgb(255,255,255)', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center',width:'100%' }}>
+              <TouchableOpacity onPress={() => Actions.purchaseinfo()} style={styles.btnDatMua}>
                 <Image source={datHang}></Image>
-                <Text style={{ fontSize: 14, alignItems: 'center', letterSpacing: 0.51, color: 'rgb(109,114,120)' }}>Đặt mua</Text>
+                <Text style={styles.textDatMua}>Đặt mua</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => Actions.receive()} style={{ marginLeft: 15, marginRight: 15, width: 110, height: 130, borderRadius: 10, backgroundColor: 'rgb(255,255,255)', justifyContent: 'center', alignItems: 'center' }}>
+              <TouchableOpacity onPress={() => Actions.receive()} style={styles.btnNhanHang}>
                 <Image source={nhanHang} />
-                <Text style={{ fontSize: 14, alignItems: 'center', letterSpacing: 0.51, color: 'rgb(109,114,120)' }}>Nhận hàng</Text>
+                <Text style={styles.textNhanHang}>Nhận hàng</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => Actions.history()} style={{ width: 110, height: 130, borderRadius: 10, backgroundColor: 'rgb(255,255,255)', justifyContent: 'center', alignItems: 'center' }}>
+              <TouchableOpacity onPress={() => Actions.history()} style={styles.btnLichSuMH}>
                 <Image source={lichsu}></Image>
-                <Text style={{ fontSize: 14, alignItems: 'center', letterSpacing: 0.51, color: 'rgb(109,114,120)' }}>Lịch sử {'\n'}mua hàng</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          <View style={styles.BottomView}>
-            <View style={{ marginLeft: 15, alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={() => this.setState({ checkMuaHang: !this.state.checkMuaHang, checkKiemTra: this.state.checkMuaHang, checkTaiKhoan: this.state.checkMuaHang })}>
-                <Image source={this.state.checkMuaHang ? IconMua : IconMuaUnCheck} style={{ width: 30, height: 30, marginLeft: 15 }} />
-                <Text style={{ marginBottom: 5 }}>MUA HÀNG</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={() => this.setState({ checkKiemTra: !this.state.checkKiemTra, checkMuaHang: this.state.checkKiemTra, checkTaiKhoan: this.state.checkKiemTra }, Actions.check())}>
-                <Image source={this.state.checkKiemTra ? IconCheckKiemtra : IconKiemtra} style={{ width: 35, height: 35, marginLeft: 15 }} />
-                <Text style={{ marginBottom: 5 }}>KIỂM TRA</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ alignItems: 'center', marginRight: 15 }}>
-              <TouchableOpacity
-                onPress={() => this.setState({ checkTaiKhoan: !this.state.checkTaiKhoan, checkMuaHang: this.state.checkTaiKhoan, checkKiemTra: this.state.checkTaiKhoan }, Actions.account())}>
-                <Image source={IconTaiKhoan} source={this.state.checkTaiKhoan ? IconTaiKhoanCheck : IconTaiKhoan} style={{ width: 30, height: 30, marginLeft: 15 }} />
-                <Text style={{ marginBottom: 5 }}>TÀI KHOẢN</Text>
+                <Text style={styles.textLichSuMH}>Lịch sử {'\n'}mua hàng</Text>
               </TouchableOpacity>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottomView}>
+          <View style={styles.childrenBottomView}>
+            <TouchableOpacity
+              onPress={() => this.setState({ checkMuaHang: !this.state.checkMuaHang, checkKiemTra: this.state.checkMuaHang, checkTaiKhoan: this.state.checkMuaHang },Actions.home())}>
+              <Image source={this.state.checkMuaHang ? IconMua : IconMuaUnCheck} style={styles.imageIcon} />
+              <Text >MUA HÀNG</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.childrenBottomView}>
+            <TouchableOpacity
+              onPress={() => this.setState({ checkKiemTra: !this.state.checkKiemTra, checkMuaHang: this.state.checkKiemTra, checkTaiKhoan: this.state.checkKiemTra }, Actions.check())}>
+              <Image source={this.state.checkKiemTra ? IconCheckKiemtra : IconKiemtra} style={styles.imageIcon} />
+              <Text>KIỂM TRA</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.childrenBottomView}>
+            <TouchableOpacity
+              onPress={() => this.setState({ checkTaiKhoan: !this.state.checkTaiKhoan, checkMuaHang: this.state.checkTaiKhoan, checkKiemTra: this.state.checkTaiKhoan }, Actions.account())}>
+              <Image source={IconTaiKhoan} source={this.state.checkTaiKhoan ? IconTaiKhoanCheck : IconTaiKhoan} style={styles.imageIcon} />
+              <Text>TÀI KHOẢN</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     )
   }
 
 }
-
 
 export default HomeScreen;  
