@@ -31,6 +31,7 @@ import FinishedScreen from './src/components/screens/FinishedScreen';
 import GasRequest from './src/components/screens/GasRequestScreen';
 import OrderSuccessScreen from './src/components/screens/OrderSuccessScreen';
 import SuccessfulDeliveryScreen from './src/components/screens/SuccessfulDeliveryScreen';
+import CreateScreen from './src/components/screens/CreateScreen';
 import { Router, Scene } from 'react-native-router-flux';
 
 const App = () => {
@@ -179,7 +180,12 @@ const App = () => {
           title="Successful Delivery"
           hideNavBar
         />
-
+        <Scene
+          key="createDH"
+          component={CreateScreen}
+          title="Create"
+          hideNavBar
+        />
 
       </Scene>
     </Router>

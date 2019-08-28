@@ -48,7 +48,7 @@ class GasRequest extends Component {
                     </View>
                 </View>
                 <View style={styles.btnBottom} >
-                    <TouchableOpacity style={styles.btnCreate} >
+                    <TouchableOpacity style={styles.btnCreate} onPress={()=> Actions.createDH()}>
                         <Text style={styles.textBtnCreate}>Tạo đơn hàng</Text>
                     </TouchableOpacity>
                 </View>
