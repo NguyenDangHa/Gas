@@ -125,7 +125,7 @@ export default StyleSheet.create({
     },
     checkBox: {
         flexDirection: 'row',
-        marginLeft: 28
+        marginLeft: 15
     },
     iconCheck: {
         width: 30,
