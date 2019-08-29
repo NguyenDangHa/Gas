@@ -58,7 +58,7 @@ class ReceiveScreen extends React.Component {
                             </View>
                             <View style={{ flexDirection: 'row', marginLeft: 50 }}>
                                 <Text style={styles.textContent2}>Địa chỉ :</Text>
-                                <Text style={styles.textContent3}>      123 Võ Nguyên Giáp, Q. Sơn Trà,{'\n'} Tp.Đà Nẵng.</Text>
+                                <Text style={styles.textContent3}>      123 Võ Nguyên Giáp,{'\n'} Q. Sơn Trà, Tp.Đà Nẵng.</Text>
                             </View>
                             <Text numberOfLines={1} style={{ color: 'rgb(151,151,151)', marginBottom: 5, textAlign: 'center' }}>
                                 ______________________________________________________________</Text>

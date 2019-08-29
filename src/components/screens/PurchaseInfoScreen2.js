@@ -55,9 +55,7 @@ class PurchaseInfoScreen2 extends React.Component {
     _onPress = () => {
         this.props.onPressItem(this.props.id);
     };
-
     render() {
-
         return (
             <View style={styles.backgroundContainer}>
                 <View style={styles.topView}>
