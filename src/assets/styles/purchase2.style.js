@@ -144,11 +144,9 @@ export default StyleSheet.create({
     },
     btnBottom: {
         alignItems: 'center',
-        marginTop: 50,
-        marginBottom: 300
+        marginTop: 20,
+        marginBottom: 100
     },
-
-
     items: {
         backgroundColor: 'rgb(186,12,47)',
         fontSize: 15,

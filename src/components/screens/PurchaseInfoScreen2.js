@@ -4,6 +4,7 @@ import {
     View,
     TouchableOpacity,
     Image,
+    ScrollView
 } from 'react-native';
 import IconNotifications from '../../images/notificationIcon.png';
 import IconBack from '../../images/backbutton.png';
@@ -68,84 +69,85 @@ class PurchaseInfoScreen2 extends React.Component {
                         <Image source={IconNotifications} style={styles.notification} />
                     </TouchableOpacity>
                 </View>
-
-                <View >
+                <ScrollView>
                     <View >
-                        <Text style={styles.textContainer}>Chi tiết đơn hàng</Text>
-                        <Text style={styles.textContent1}>Loại Gas cần mua</Text>
-                    </View>
+                        <View >
+                            <Text style={styles.textContainer}>Chi tiết đơn hàng</Text>
+                            <Text style={styles.textContent1}>Loại Gas cần mua</Text>
+                        </View>
 
-                    <View style={styles.viewHorizontal}>
-                        <TouchableOpacity>
-                            <Image style={styles.content} source={IconGas45} />
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image style={styles.content} source={IconGas45} />
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image style={styles.content} source={IconGas48} />
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image style={styles.content} source={IconGas48} />
-                        </TouchableOpacity>
-                    </View>
+                        <View style={styles.viewHorizontal}>
+                            <TouchableOpacity>
+                                <Image style={styles.content} source={IconGas45} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image style={styles.content} source={IconGas45} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image style={styles.content} source={IconGas48} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image style={styles.content} source={IconGas48} />
+                            </TouchableOpacity>
+                        </View>
 
-                    <View style={{ flexDirection: 'row',marginBottom:20}}>
-                        <View style={{ flex: 1 }}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image style={styles.iconA} source={IconA}></Image>
-                                <Text style={styles.textNumber}>Số lượng mua</Text>
+                        <View style={{ flexDirection: 'row', marginBottom: 20 }}>
+                            <View style={{ flex: 1 }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image style={styles.iconA} source={IconA}></Image>
+                                    <Text style={styles.textNumber}>Số lượng mua</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={this.incrementCountMinusPurchase}>
+                                        <Image style={styles.iconPlus} source={IconTru} />
+                                    </TouchableOpacity>
+                                    <Text style={styles.textStatus}>{this.state.count}</Text>
+                                    <TouchableOpacity onPress={this.incrementCountPlusPurchase}>
+                                        <Image style={styles.iconPlus} source={IconCong} />
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                            <View style={{ flexDirection: 'row' }}>
-                                <TouchableOpacity onPress={this.incrementCountMinusPurchase}>
-                                    <Image style={styles.iconPlus} source={IconTru} />
-                                </TouchableOpacity>
-                                <Text style={styles.textStatus}>{this.state.count}</Text>
-                                <TouchableOpacity onPress={this.incrementCountPlusPurchase}>
-                                    <Image style={styles.iconPlus} source={IconCong} />
-                                </TouchableOpacity>
+
+                            <View style={{ flex: 1 }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image style={styles.iconA} source={IconB}></Image>
+                                    <Text style={styles.textNumber}>Số lượng vỏ đổi</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={this.incrementCountMinus}>
+                                        <Image style={styles.iconPlus} source={IconTru} />
+                                    </TouchableOpacity>
+                                    <Text style={styles.textStatus}>{this.state.cin}</Text>
+                                    <TouchableOpacity onPress={this.incrementCountPlus}>
+                                        <Image style={styles.iconPlus} source={IconCong} />
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
 
-                        <View style={{ flex: 1 }}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image style={styles.iconA} source={IconB}></Image>
-                                <Text style={styles.textNumber}>Số lượng vỏ đổi</Text>
-                            </View>
-                            <View style={{ flexDirection: 'row' }}>
-                                <TouchableOpacity onPress={this.incrementCountMinus}>
-                                    <Image style={styles.iconPlus} source={IconTru} />
-                                </TouchableOpacity>
-                                <Text style={styles.textStatus}>{this.state.cin}</Text>
-                                <TouchableOpacity onPress={this.incrementCountPlus}>
-                                    <Image style={styles.iconPlus} source={IconCong} />
-                                </TouchableOpacity>
-                            </View>
+                        <View style={styles.viewNote}>
+                            <Image style={{ width: 25, height: 25 }} source={IconInFo} />
+                            <Text style={styles.textNote}>Bạn đã có vỏ bình gas “PM - Gas Hồng 45kg” để đổi chưa?{'\n'}Vui lòng điền số lượng vỏ đổi bạn có.</Text>
                         </View>
-                    </View>
 
-                    <View style={styles.viewNote}>
-                        <Image style={{ width: 25, height: 25 }} source={IconInFo} />
-                        <Text style={styles.textNote}>Bạn đã có vỏ bình gas “PM - Gas Hồng 45kg” để đổi chưa?{'\n'}Vui lòng điền số lượng vỏ đổi bạn có.</Text>
-                    </View>
+                        <View style={styles.textBottom}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Text style={styles.textTotal}>Tổng tiền: </Text>
+                                <Text style={styles.textTotal2}>{this.state.count * (150000)} VNĐ </Text>
+                            </View>
+                            <TouchableOpacity>
+                                <Text style={styles.textDetail}>Chi tiết</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                    <View style={styles.textBottom}>
-                        <View style={{flexDirection:'row'}}>
-                            <Text style={styles.textTotal}>Tổng tiền: </Text>
-                            <Text style={styles.textTotal2}>{this.state.count * (150000)} VNĐ </Text>
-                        </View>                        
-                        <TouchableOpacity>
-                            <Text style={styles.textDetail}>Chi tiết</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <View style={styles.btnBottom} >
+                            <TouchableOpacity style={styles.btnLogin} onPress={() => Actions.purchaseinfo3()}>
+                                <Text style={styles.textBtnLogin} >Tiếp tục</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                    <View style={styles.btnBottom} >
-                        <TouchableOpacity style={styles.btnLogin} onPress={() => Actions.purchaseinfo3()}>
-                            <Text style={styles.textBtnLogin} >Tiếp tục</Text>
-                        </TouchableOpacity>
                     </View>
-
-                </View>
+                </ScrollView>
             </View>
         );
     }

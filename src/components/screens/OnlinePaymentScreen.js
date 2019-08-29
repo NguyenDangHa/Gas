@@ -48,7 +48,7 @@ class OnlinePaymentScreen extends React.Component {
                             </View>
                             <View style={{ flexDirection: 'row',marginBottom:20 }}>
                                 <Text style={styles.textItem1}>Chi phí : </Text>
-                                <Text style={styles.textItem3}>6,4000,000</Text>
+                                <Text style={styles.textItem3}>6,4000,000 VNĐ</Text>
                             </View>
                         </View>
 
