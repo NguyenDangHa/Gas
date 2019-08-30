@@ -37,13 +37,13 @@ class LoginScreen extends Component {
             dataSource: [
                 {
 
-                    url: 'http://placeimg.com/640/480/any',
+                    url: 'http://placeimg.com/1024/700/any',
                 }, {
 
-                    url: 'http://placeimg.com/650/480/any',
+                    url: 'http://placeimg.com/1024/600/any',
                 }, {
 
-                    url: 'http://placeimg.com/670/480/any',
+                    url: 'http://placeimg.com/1024/500/any',
                 },
             ],
         }
