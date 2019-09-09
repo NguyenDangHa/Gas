@@ -33,7 +33,7 @@ class InfoAccountScreen extends Component {
                 </View>
 
                 <ScrollView>
-                    <View style={{ marginLeft: 20}}>
+                    <View style={{ marginLeft: 20 }}>
                         <Text style={styles.textInfo}>Thông tin chung</Text>
                         <View style={{ alignItems: 'center' }}>
                             <Image style={styles.imageProfile} source={ImageProfile} />
@@ -90,14 +90,16 @@ class InfoAccountScreen extends Component {
                         <View style={styles.container}>
                             <Text style={styles.textInfo2}>Thông tin cửa hàng</Text>
                             <View style={{ alignItems: 'center' }}>
-                                <Text style={styles.textUnderline}>
-                                    Nhấn vào đây để xem chi tiết cửa hàng
+                                <TouchableOpacity>
+                                    <Text style={styles.textUnderline}>
+                                        Nhấn vào đây để xem chi tiết cửa hàng
                                 </Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
                 </ScrollView>
-                
+
             </View>
         );
 
